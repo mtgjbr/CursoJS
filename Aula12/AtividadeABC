@@ -1,0 +1,15 @@
+let varA = "A"; //B
+let varB = "B"; //C
+let VarC = "C";//A
+
+ 
+let tempB= varB
+varB = VarC;
+VarC= varA;
+varA= tempB;
+
+console.log(varA, varB, VarC)
+
+
+[varA , varB , VarC] = [varB, VarC , varA]
+console.log(varA, varB, VarC);

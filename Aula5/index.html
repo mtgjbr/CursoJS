@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <style>
+        #pkmvs {
+            right: 50px;
+            position: absolute;
+
+        }
+
+        #pkm {
+            margin-top: 50px;
+            position: absolute;
+        }
+    </style>
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Minha primeira pagina HTMl</title>
+    <img src="" alt="" id="pkm">
+    <img src="" alt="" id="pkmvs">
+</head>
+
+<body>
+    <script src="js/index.js">  </script>
+<script>
+    // crie variaveis para cada um dos iniciais de Kanto, e em seguida printe para o usuário 
+// (com os nomes) qual deles ele escolhe
+const inicialFogo = "charmander";
+const inicialGrama = "Bulbasaur";
+const inicialAgua = "Squirtle";
+console.log("Qual seu Pokemon inicial?", inicialAgua,",",inicialFogo,"ou o", inicialGrama,",", "escolha com sabedoria!");
+
+let escolhas = ["1","2","3"]
+let pokemons = ["charmander","bulbasaur","squirtle"]
+let escolha = prompt("Escolha um Pokemon: \n -1"+inicialAgua+"\n -2"+inicialFogo+"\n -3"+inicialGrama);
+
+while(!escolhas.includes(escolha)){
+
+    switch (escolha) {
+        case "1":
+            alert("Parabens!!,seu inicial é o "+ inicialAgua+",um ótimo Pokemon.");
+            break;
+            case "2":
+                alert("Muito bem!!,seu inicial é o "+inicialFogo+",sem dúvidas,o melhor Pokemon.");
+                break;
+                case "3":
+                    alert("É isso ai,você escolheu o"+inicialGrama+"uma escolha muito inteligente.");
+                   
+                    break;
+                    default:
+                        alert("ESCOLHE UM NUMERO DIREITO AE FDP");
+                        escolha = prompt("Escolha um Pokemon: \n -1"+inicialAgua+"\n -2"+inicialFogo+"\n -3"+inicialGrama);
+                    }
+                }
+                fetch(`https://pokeapi.co/api/v2/pokemon/${pokemons[escolha-1]}`)
+    .then((data) => data.json())
+    .then((json) => {
+        console.log(json);
+        document.querySelector("#pkm").src=json.sprites.back_default
+        let against
+        if(pokemons[escolha-1] == "squirtle"){
+            against = "bulbasaur"
+        }if(pokemons[escolha-1] == "bulbasaur"){
+            against = "charmander"
+
+        }else {
+            against = "squirtle"
+
+        }
+        fetch(`https://pokeapi.co/api/v2/pokemon/${against}`)
+    .then((data) => data.json())
+    .then((json) => {
+        document.querySelector("#pkmvs").src=json.sprites.front_default
+    })
+    
+    })
+</script>
+</body>
+
+function (...numbers) {
+    return numbers.reduce((acc, number) => acc + number);
+}
+
+const numbers = [1, 2, 3, 4, 5]
+
+</html>
