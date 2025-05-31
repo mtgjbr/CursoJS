@@ -5,11 +5,10 @@ function Meuescopo() {
     function recebeEventoForm(evento) {
         evento.preventDefault();
 
-        const peso = document.querySelector('#peso');
-        const altura = document.querySelector('#altura');
-        const alturaEmM = parseFloat(altura.value);
-        const pesoEmKg = parseFloat(peso.value);
-        let imc = pesoEmKg / (alturaEmM * alturaEmM);
+        const peso = parseFloat(document.querySelector('#peso').value);
+        const altura = parseFloat(document.querySelector('#altura').value);
+        let imc = peso / (altura * altura);
+
 
         if (imc < 18.5) {
             resultado.innerHTML = `Seu imc é ${imc.toFixed(2)} (abaixo do peso).`;
@@ -24,7 +23,7 @@ function Meuescopo() {
         }
         else if (imc > 30 && imc < 34.9) {
             resultado.innerHTML = `seu imc é ${imc.toFixed(2)} (obesidade grau 1)`;
-        
+
         }
         else if (imc > 35 && imc < 39.9) {
             resultado.innerHTML = `seu imc é ${imc.toFixed(2)} (sobesidade grau 2)`;
@@ -32,7 +31,7 @@ function Meuescopo() {
         else if (imc > 40) {
             resultado.innerHTML = `seu imc é ${imc.toFixed(2)} (obesidade grau 3)`;
         }
-        else if (isNaN(imc) || alturaEmM<=1.00|| pesoEmKg<10){
+        else if (isNaN(imc)) {
             resultado.innerHTML = "insira um número valido"
         }
 
