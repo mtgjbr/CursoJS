@@ -4,7 +4,7 @@ function Meuescopo() {
 
     function recebeEventoForm(evento) {
         evento.preventDefault();
-
+ //id= # , class = .
         const peso = parseFloat(document.querySelector('#peso').value);
         const altura = parseFloat(document.querySelector('#altura').value);
         let imc = peso / (altura * altura);
