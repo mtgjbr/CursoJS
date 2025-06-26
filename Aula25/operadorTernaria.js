@@ -12,3 +12,8 @@ const corPadrao = corUsuario || "preta" //settando valor padrão para variavel,f
  }
  */
 console.log(nivelUsuario,corPadrao)
+let idade = 18;
+let podeEntrar = idade >= 18 ? 'Sim' : 'Não';
+
+console.log(podeEntrar); // "Sim"
+//em resumo é uma outra maneira de se escrever if/else
