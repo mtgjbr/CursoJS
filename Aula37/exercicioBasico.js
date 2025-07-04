@@ -18,7 +18,5 @@ function max (x,y){
 }
 console.log(max(10,40))
 
-const max2 = (z,a) =>{
-    return z > a ? z : a;
-}
+const max2 = (z,a) =>{return z > a ? z : a;}
 console.log(max2(10,20));
